@@ -7,6 +7,7 @@ import logo from "../img/logo.jpg";
 import {fetchSearch} from "../actions/gameActions";
 import {useDispatch} from "react-redux";
 import {fadeIn} from "../animation";
+import {Link} from "react-router-dom";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ const Nav = () => {
   const clearSearch = () => {
     dispatch({ type: "CLEAR_SEARCHED" });
   };
+  const navigateToUserPage = () =>{
+    
+  }
   return (
     <Stylednav variants={fadeIn} initial="hidden" animate="show">
       <Logo onClick={clearSearch}>
@@ -33,13 +37,18 @@ const Nav = () => {
         <button onClick={submitSearch} type="submit">
           Search
         </button>
+        <div>
+            <Link to="/User">
+                <button onClick={navigateToUserPage}>Sign up/Log in/Log out</button>
+            </Link>
+        </div>
       </form>
     </Stylednav>
   );
 };
 
-//Froms by default caused the page to refresh and be unresponsive
-//e.preventDefault and inplace of onsubmit use onclick.
+//Forms by default caused the page to refresh and be unresponsive
+
 const Stylednav = styled(motion.nav)`
   padding: 1.3rem 5rem;
   text-align: center;
