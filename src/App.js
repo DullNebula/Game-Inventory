@@ -1,10 +1,15 @@
-import Pages from './pages/Pages';
+import React from "react";
+import Home from "./pages/Home";
+import Nav from "./components/Nav";
+import GlobalStyles from "./components/GlobalStyle";
+import {Route} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
-      <Pages/>
+      <GlobalStyles />
+      <Nav />
+      <Home />
     </div>
   );
 }
